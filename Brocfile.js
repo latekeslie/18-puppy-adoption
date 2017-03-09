@@ -45,7 +45,7 @@ const stylePaths = [
   'node_modules/normalize-css',
   'node_modules/yoga-sass/assets',
   // Add any extra libs you want to import from node modules in sass here...
-  // 'node_modules/bulma',
+  'node_modules/bulma',
 ];
 const appNoSass = rm('app', '**/*.scss');
 
