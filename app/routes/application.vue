@@ -15,25 +15,15 @@
       <div class="container">
         <ul class="panel">
           <li class="panel-heading">Adopt a pupper</li>
-          <li class="panel-block">
+          <li v-for="puppy in puppies" :puppies="puppy" class="panel-block">
             <div class="media">
               <div class="media-left">
-                <img src="http://lorempixel.com/75/75/cats/" alt="">
+                <img v-bind:src="puppy.image" alt="">
               </div>
               <div class="media-content">
-                <h1>Dog Name</h1>
-                <a href="/detail">Read more</a>
-              </div>
-            </div>
-          </li>
-          <li class="panel-block">
-            <div class="media">
-              <div class="media-left">
-                <img src="http://lorempixel.com/75/75/cats/" alt="">
-              </div>
-              <div class="media-content">
-                <h1>Dog Name</h1>
-                <a href="/detail">Read more</a>
+                <h1>{{puppy.name}}</h1>
+                <router-link :to="{ name: 'detail', id: puppy.id }">Read more</router-link>
+                <!-- <a href="/detail">Read more</a> -->
               </div>
             </div>
           </li>
