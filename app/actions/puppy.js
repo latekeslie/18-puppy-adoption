@@ -7,3 +7,10 @@ export function findAllComplete(data = []) {
     data
   };
 }
+
+export function findAll() {
+  return dispatch => fetch(apiUrl).then(parseJson)
+    .then((response) => {
+      dispatch(findAllComplete(response));
+    });
+}
