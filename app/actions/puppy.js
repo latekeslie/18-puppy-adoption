@@ -9,7 +9,7 @@ export function findAllComplete(data = []) {
 }
 
 export function findAll() {
-  return dispatch => fetch(apiUrl).then(parseJson)
+  return dispatch => fetch(apiUrl).then(data => data.json())
     .then((response) => {
       dispatch(findAllComplete(response));
     });

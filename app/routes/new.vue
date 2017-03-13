@@ -1,7 +1,7 @@
 <template lang="html">
   <div class="">
     <form >
-      <h2>{{formValues.name}}</h2>
+      <h2 class="title">{{formValues.name}}</h2>
       <input type="text" name="name" v-model="formValues.name">
       <input type="text" name="age" v-model="formValues.age">
       <select name="sex" v-model="formValues.sex">

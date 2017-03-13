@@ -19,6 +19,10 @@ const routes = [
     name: 'new',
     component: New,
   },
+  {
+    path: '/detail',
+    name: 'detail'
+  }
 ];
 
 const router = new VueRouter({
