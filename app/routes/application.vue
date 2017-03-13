@@ -11,24 +11,27 @@
       </div>
     </nav>
 
-    <div class="section">
+    <div class="section is-grow">
       <div class="container">
-        <ul class="panel">
-          <li class="panel-heading">Adopt a pupper</li>
-          <li v-for="puppy in puppies" class="panel-block">
-            <div class="media">
-              <div class="media-left">
-                <img v-bind:src="puppy.image" alt="">
-              </div>
-              <div class="media-content">
-                <h1>{{puppy.name}}</h1>
-                <router-link :to="{ name: 'detail', id: puppy.id }">Read more</router-link>
+        <div class="columns">
+          <div class="column is-4">
+            <ul class="panel">
+              <li class="panel-heading">Adopt a pupper</li>
+              <li v-for="puppy in puppies" class="panel-block">
+                <div class="media">
+                  <div class="media-left">
+                    <img v-bind:src="puppy.image" alt="">
+                  </div>
+                <div class="media-content">
+                  <h1>{{puppy.name}}</h1>
+                  <router-link :to="{ name: 'detail', id: puppy.id }">Read more</router-link>
               </div>
             </div>
           </li>
         </ul>
+      </div>
 
-        <main>
+        <main class="column is-8">
           <transition>
             <keep-alive>
               <router-view></router-view>
@@ -36,6 +39,7 @@
           </transition>
         </main>
       </div>
+     </div>
     </div>
 
 
