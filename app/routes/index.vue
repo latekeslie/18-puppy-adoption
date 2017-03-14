@@ -17,8 +17,8 @@
             </thead>
             <tbody>
               <tr v-for="puppy in puppies">
-                <th></th>
-                <th></th>
+                <th>{{ puppy.name }}</th>
+                <th>{{ puppy.age }}</th>
                 <th><router-link :to="{ name: 'details', id: puppy.id }">read more</router-link></th>
               </tr>
             </tbody>

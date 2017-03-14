@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="transition-spot">
-    <form class="control">
+    <form class="control" v-on:submit.prevent="add(formValues)">
       <h2 class="title">Found a Pupper? We Can Help!</h2>
       <label for="name">Name</label>
       <p class="control">
@@ -42,6 +42,9 @@
 </template>
 
 <script>
+import store from '../store';
+import { create } from '../actions/puppy';
+
 export default {
   data() {
     return {
@@ -53,11 +56,24 @@ export default {
         breed: '',
         image: '',
       },
+      //puppy: this.$select('puppy')
     };
   },
+  // save(data) {
+  //   store.dispatch(update(data._id, data)).then(() => {
+  //     //redirect
+  //     this.$router.push({ name: 'index' });
+  //   });
+  // },
 
   methods: {
-
+    add(formData) {
+      store.dispatch(create(formData)).then(() => {
+        this.$router.push({ name: 'index' });
+      });
+      console.log(formData)
+      // dispatch that create action with this form data
+    },
   },
 };
 </script>

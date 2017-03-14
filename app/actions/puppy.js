@@ -28,12 +28,18 @@ export function create(formData) {
   };
 }
 
-
 export function findAllComplete(data = []) {
   return {
     type: 'PUPPY@FINDALL_COMPLETE',
     data
   };
+}
+
+export function findAll() {
+  return dispatch => fetch(apiUrl).then(r => r.json())
+    .then((response) => {
+      dispatch(findAllComplete(response));
+    });
 }
 
 export function findOneComplete() {
@@ -65,4 +71,14 @@ export function update(id, formData) {
   .then((put) => {
     dispatch(updateComplete(put));
   });
+}
+
+export function toggleAdopted(puppy) {
+  return dispatch => {
+    const newPuppy = {
+      ...puppy,
+      adopted: !puppy.adopted
+    }
+    dispatch(update(puppy.id, newPuppy));
+  };
 }
