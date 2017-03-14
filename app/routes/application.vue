@@ -20,7 +20,9 @@
               <li v-for="puppy in puppies" class="panel-block">
                 <div class="media">
                   <div class="media-left">
-                    <img v-bind:src="puppy.image" alt="">
+                      <div class="image is-64x64 is-square">
+                        <img v-bind:src="puppy.image_url" alt="">
+                      </div>
                   </div>
                 <div class="media-content">
                   <h1>{{puppy.name}}</h1>

@@ -33,6 +33,10 @@
       <p class="control">
         <textarea class="textarea" description="description" rows="8" cols="80">Description</textarea>
       </p>
+      <p class="control">
+        <router-link class="button is-outlined router-link-active":to="{ name: 'index' }">Back</router-link>
+        <button class="button is-primary">Submit</button>
+      </p>
     </form>
   </div>
 </template>
