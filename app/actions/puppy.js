@@ -15,7 +15,7 @@ export function create(formData) {
     const data = {
       formData,
     };
-    // dispatch(''())
+    dispatch(create());
 
     return fetch(apiUrl, {
       method: 'POST',
@@ -36,10 +36,16 @@ export function findAllComplete(data = []) {
   };
 }
 
+export function findOneComplete() {
+  return {
+    type: 'PUPPY@FINDONE_COMPLETE',
+  };
+}
 
-export function findAll() {
-  return dispatch => fetch(apiUrl).then(data => data.json())
+
+export function findOne(id) {
+  return dispatch => fetch(`${apiUrl}/${id}`).then(data => data.json())
     .then((response) => {
-      dispatch(findAllComplete(response));
+      dispatch(findOneComplete(response));
     });
 }
