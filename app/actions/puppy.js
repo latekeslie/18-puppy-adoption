@@ -49,3 +49,20 @@ export function findOne(id) {
       dispatch(findOneComplete(response));
     });
 }
+
+export function updateComplete() {
+  return {
+    type: 'PUPPY@FINDONE_COMPLETE',
+  };
+}
+
+export function update(id, formData) {
+  return dispatch => fetch(`${apiUrl}/${id}`, {
+    method: 'PUT',
+    body: JSON.stringify(formData),
+    headers,
+  }).then(r => r.json())
+  .then((put) => {
+    dispatch(updateComplete(put));
+  });
+}
